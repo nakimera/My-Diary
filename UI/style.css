@@ -113,15 +113,16 @@ header{
 }
 
 header .header-brand {
-    font-family: Catamaran;
-    font-size: 22px;
+    font-family: 'Special Elite', cursive;
+    font-size: 28px;
+    letter-spacing: 2.5px;
     font-weight: 900;
-    color: brown;
+    color: rgb(139, 69, 19);
     text-transform: uppercase;
     display: block;
     margin: 0 auto;
     text-align: center;
-    padding: 20px 0px;
+    padding: 30px 0px 20px 0;
 }
 
 header nav ul {
@@ -140,13 +141,109 @@ header nav ul li {
 header nav ul a {
     font-family: Catamaran;
     font-size: 16px;
-    color: #111
+    color: rgb(139, 69, 19);
+    letter-spacing: 2px;
 }
 
-body{
-    background-image: url(2.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
+html { 
+    background: url(4.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    height: 100vh;
+  }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.modal-content {
+    background-color: brown;
+    margin: 15px auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 30px;
+}
+
+/*container*/
+.container {
+    background-color: rgb(185, 141, 112, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: calc(100vh - 100px);
+    justify-content: center;
+    align-items: center;
+}
+
+.container > div {
+    margin: 0px 20px 0;
+    padding: 20px;   
+}
+
+.main-right {
+    background-color: rgb(185, 141, 112);
+    height: 300px;
+    width: 250px;
+    color: ;
+    font-family: 'Special Elite', cursive;
+}
+
+.main-left {
+    border:white solid 45px;
+    line-height: 50px;
+    width: 600px;
+   
+}
+
+h1 {
+    font-size: 60px;
+    padding: 50px 0;
+    text-align: center;
+    color: white;
+    font-weight: 980;
+    font-family: 'Courgette', cursive;
+    line-height: 70px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 25px;
+    color: white;
+    padding: 20px 0;
+
+}
+
+/*form*/
+.text-field {
+    width: 100%;
+    height: 25px;
+    margin: 10px 0;
+}
+
+button{
+    border: none;
+    background-color: saddlebrown;
+    color: white;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+
+
+h3 {
+    margin: 10px 0;
+    text-align: center;
 }
