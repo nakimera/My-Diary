@@ -297,3 +297,18 @@ h4 {
     height: 420px;
     width: 300px;
 }
+
+p {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    font-family: 'Handlee', cursive;
+}
+
+.myentry {
+    width: 90%;
+}
+
+.darker {
+    background-color: rgba(0, 0, 0, 0.8);
+}
