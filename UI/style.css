@@ -203,7 +203,6 @@ html {
     background-color: rgb(185, 141, 112);
     height: 300px;
     width: 250px;
-    color: ;
     font-family: 'Special Elite', cursive;
 }
 
@@ -247,7 +246,7 @@ button{
     width: 250px;
     height: 30px;
     font-size: 15px;
-    border-radius: 8px;
+    border-radius: 5px;
     text-align: center;
     display: block;
     margin:0 auto;
@@ -260,12 +259,58 @@ h3 {
 }
 
 .container-entry {
-    display: flex;
-    width: 600px;
-    height: 450px;
-    background-color: rgb(185, 141, 112);
+    width: 700px;
+    padding: 15px;
+    height: 420px;
+    background-color: rgb(185, 141, 112, 0.9);
 }
 
 textarea {
     margin-top: 10px;
+}
+
+.entry-container {
+    background-color: rgb(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 100px);
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    height: 120px;
+    width: 70%;
+    margin: 10px;
+    background-color: rgb(185, 141, 112, 0.9);
+}
+
+.cards > div {
+    width: 100%;
+    height: 48%;
+}
+
+.bottom-border {
+    border-bottom: solid white 2px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.row > div {
+    width: 33.3%;
+}
+
+.top {
+    padding: 0px;
+}
+
+h4 {
+    text-decoration: underline;
+    font-size: 18px;
+    color: #000;
 }

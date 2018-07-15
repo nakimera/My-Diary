@@ -15,16 +15,18 @@
         <a href="index.html" class="header-brand">My Diary</a>
         <nav class="center">
             <ul>
-                <li><a href="#">My entries</a></li> 
-                <li><a href="#">Write new entry</a></li> 
+                <li><a href="newentry.html">Write new entry</a></li> 
+                <li><a href="home.html">My entries</a></li> 
                 <li><a href="#">My account</a></li> 
              </ul>
         </nav>
     </header>
-    <div class="container">
-        <h1>Write new entry</h1>
-        <div class="container-entry">
-            <form>
+    <div class="entry-container">
+        <div>
+            <h1>Write new entry</h1>
+        </div>
+        <div>
+            <form class="container-entry">
                 <fieldset>
                     <div class="login">
                         <label>Entry date</label>
@@ -32,12 +34,11 @@
                         <label>Entry title</label>
                         <input type="text">
                         <label>Entry</label>
-                        <textarea name="entry" rows="15" cols="83">write ...</textarea> 
+                        <textarea name="entry" rows="13" cols="96">write ...</textarea> 
                         <button type="submit">Save entry</button>
                     </div>    
                 </fieldset>
             </form> 
         </div>
-        
     </div>
 </body>
