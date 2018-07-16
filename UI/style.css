@@ -130,6 +130,29 @@ header .header-brand {
     text-align: center;
 }
 
+header nav ul {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    margin-top: 15px;
+}
+header nav ul li {
+    display: inline-block;
+    list-style: none;
+    
+}
+
+header nav ul a {
+    font-family: Catamaran;
+    font-size: 16px;
+    color: rgb(139, 69, 19);
+    padding: 0 30px 0 30px;
+}
+
+.center {
+    text-align: center;
+}
+ 
 .container {
     display: flex;
     flex-flow: row wrap;
@@ -162,7 +185,7 @@ h1 {
 form {
     padding: 20px 0 20px 20px;
     width: 300px;
-    height: 300px;
+    height: 320px;
     background-color: white;
 }
 
@@ -187,6 +210,7 @@ h2 {
     color: white;
     border: 0px;
     margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 h3 {
@@ -201,4 +225,45 @@ h3 {
 
 .input-signup {
     margin-bottom: 0;
+}
+
+.btn-logout {
+    padding: 0;
+    width: 70px;
+    margin-right: 20px;
+    margin-top: -50px;
+    color: saddlebrown;
+    background-color: white;
+    border: solid saddlebrown 1px;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+}
+ 
+.right {
+    float: right;
+}
+
+.acc-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.acc-container > div {
+    border: solid 1px white;
+    width: 300px;
+    height: 300px;
+    margin-top: 150px;
+}
+
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 250px;
+}
+
+.counter {
+    
 }
