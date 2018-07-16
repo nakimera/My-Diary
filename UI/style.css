@@ -106,10 +106,15 @@ input, select {
     text-decoration: none;
 }
 
+body {
+    background-color: saddlebrown;
+}
+
 header{
     background-color: #fff;
     width: 100%;
-    height: 100px;
+    height: 70px;
+    padding-top: 20px;
 }
 
 header .header-brand {
@@ -123,3 +128,4 @@ header .header-brand {
     margin: 0 auto;
     text-align: center;
 }
+
