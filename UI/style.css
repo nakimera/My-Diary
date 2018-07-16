@@ -107,7 +107,7 @@ input, select {
 }
 
 body {
-    background-color: saddlebrown;
+    background-color: rgb(139, 69, 19, 0.95);
 }
 
 header{
@@ -115,6 +115,7 @@ header{
     width: 100%;
     height: 70px;
     padding-top: 20px;
+    position: fixed;
 }
 
 header .header-brand {
@@ -129,3 +130,70 @@ header .header-brand {
     text-align: center;
 }
 
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    height: calc(100vh + 70px);
+    justify-content: center;
+    align-items: center;
+}
+
+.container > div {
+    width: 500px;
+    height: 400px;
+    margin: 20px;
+}
+
+.left  {
+    border: solid 5px white;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    font-weight: 980;
+    font-family: 'Courgette', cursive;
+    line-height: 70px;
+    letter-spacing: 1px;
+    padding-top: 70px;
+}
+
+.right {
+    border: solid white 2px;
+}
+
+form {
+    padding: 20px 0 20px 20px;
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    justify-content: center;
+}
+
+input {
+    width: 90%;
+    height: 30px;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 25px;
+    color: saddlebrown;
+    font-family: 'Special Elite', cursive;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.btnlogin {
+    background-color: saddlebrown;
+    width: 90%;
+    height: 32px;
+    color: white;
+    border: 0px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    text-align: center;
+}
