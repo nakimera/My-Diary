@@ -372,3 +372,9 @@ span {
     color: white;
     padding: 20px 95px;
 }
+
+.brown {
+    color: saddlebrown;
+    font-size: 18px;
+    font-weight: 900;
+}
