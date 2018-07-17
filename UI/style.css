@@ -357,6 +357,7 @@ h3 {
     height: 800px;
     background-color: white;
     margin-bottom: 30px;
+    overflow: hidden;
 }
 
 textarea {
@@ -377,4 +378,10 @@ span {
     color: saddlebrown;
     font-size: 18px;
     font-weight: 900;
+}
+
+p {
+    margin: 50px;
+    text-align: left;
+    font-size: 25px;
 }
