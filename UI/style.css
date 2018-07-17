@@ -164,6 +164,10 @@ header nav ul a {
     align-items: center;
 }
 
+.bg-color {
+    background-color: rgb(139, 69, 19, 0.7);
+}
+
 .container > div {
     width: 500px;
     height: 400px;
