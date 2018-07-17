@@ -107,7 +107,10 @@ input, select {
 }
 
 body {
-    background-color: rgb(139, 69, 19, 0.95);
+    background-image: url(2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 header{
@@ -193,6 +196,8 @@ input {
     width: 90%;
     height: 30px;
     margin: 20px 0;
+    border: solid 1px saddlebrown;
+    padding-left: 10px;
 }
 
 h2 {
@@ -234,6 +239,10 @@ h2 {
     width: 80px;
     height: 30px;
     border-radius: 5px;
+}
+
+.btn-save {
+    margin-top: 50px;
 }
  
 .right {
@@ -357,6 +366,3 @@ textarea {
     border: solid 1px saddlebrown;
 }
 
-input {
-    border: solid 1px saddlebrown;
-}
