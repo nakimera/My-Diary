@@ -106,10 +106,26 @@ input, select {
     text-decoration: none;
 }
 
+<<<<<<< HEAD
 header{
     background-color: #fff;
     width: 100%;
     height: 100px;
+=======
+body {
+    background-image: url(2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+header{
+    background-color: #fff;
+    width: 100%;
+    height: 70px;
+    padding-top: 20px;
+    position: fixed;
+>>>>>>> develop1
 }
 
 header .header-brand {
@@ -122,13 +138,17 @@ header .header-brand {
     display: block;
     margin: 0 auto;
     text-align: center;
+<<<<<<< HEAD
     padding: 30px 0px 20px 0;
+=======
+>>>>>>> develop1
 }
 
 header nav ul {
     display: block;
     margin: 0 auto;
     width: fit-content;
+<<<<<<< HEAD
 }
 
 .right {
@@ -140,6 +160,10 @@ header nav ul {
     text-align: center;
 }
 
+=======
+    margin-top: 15px;
+}
+>>>>>>> develop1
 header nav ul li {
     display: inline-block;
     list-style: none;
@@ -153,6 +177,7 @@ header nav ul a {
     padding: 0 30px 0 30px;
 }
 
+<<<<<<< HEAD
 html { 
     background: url(4.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -168,10 +193,21 @@ html {
     flex-wrap: wrap;
     width: 100%;
     height: calc(100vh - 100px);
+=======
+.center {
+    text-align: center;
+}
+ 
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    height: calc(100vh + 70px);
+>>>>>>> develop1
     justify-content: center;
     align-items: center;
 }
 
+<<<<<<< HEAD
 .container > div {
     margin: 0px 20px 0;
     padding: 20px;   
@@ -194,12 +230,31 @@ html {
 
 h1 {
     font-size: 60px;
+=======
+.bg-color {
+    background-color: rgb(139, 69, 19, 0.7);
+}
+
+.container > div {
+    width: 500px;
+    height: 400px;
+    margin: 20px;
+}
+
+.left  {
+    border: solid 15px white;
+}
+
+h1 {
+    font-size: 50px;
+>>>>>>> develop1
     text-align: center;
     color: white;
     font-weight: 980;
     font-family: 'Courgette', cursive;
     line-height: 70px;
     letter-spacing: 1px;
+<<<<<<< HEAD
 }
 
 h2 {
@@ -255,10 +310,83 @@ textarea {
     flex-direction: column;
     width: 100%;
     height: calc(100vh - 100px);
+=======
+    padding-top: 70px;
+}
+
+form {
+    padding: 20px 0 20px 20px;
+    width: 300px;
+    height: 320px;
+    background-color: white;
+}
+
+input {
+    width: 90%;
+    height: 30px;
+    margin: 20px 0;
+    border: solid 1px saddlebrown;
+    padding-left: 10px;
+}
+
+h2 {
+    font-size: 25px;
+    color: saddlebrown;
+    font-family: 'Special Elite', cursive;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.btnlogin {
+    background-color: saddlebrown;
+    width: 90%;
+    height: 32px;
+    color: white;
+    border: 0px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.right {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.input-signup {
+    margin-bottom: 0;
+}
+
+.btn-logout {
+    padding: 0;
+    width: 70px;
+    margin-right: 20px;
+    margin-top: -50px;
+    color: saddlebrown;
+    background-color: white;
+    border: solid saddlebrown 1px;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.btn-save {
+    margin-top: 50px;
+}
+ 
+.right {
+    float: right;
+}
+
+.acc-container {
+    display: flex;
+    flex-direction: column;
+>>>>>>> develop1
+    justify-content: center;
+    align-items: center;
+}
+
+<<<<<<< HEAD
 .cards {
     height: 120px;
     width: 70%;
@@ -326,4 +454,116 @@ p {
     width: 70%;
     background-color: rgb(185, 141, 112, 0.9);
     height: 350px;
+=======
+.acc-container > div {
+    margin-top: 130px;
+    margin-bottom: 50px;
+}
+
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 250px;
+}
+
+.counter {
+    background-color: white;
+    width: 320px;
+}
+
+h4 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 25px;
+    font-family: cursive;
+}
+ 
+h5 {
+    font-size: 200px;
+    color: saddlebrown;
+    text-align: center;
+    padding: 20px;
+}
+
+
+h3 {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    font-weight: 980;
+    font-family: 'Courgette', cursive;
+    line-height: 70px;
+    letter-spacing: 1px;
+    padding-bottom: 20px;
+}
+
+
+.entries-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.entries-container > div {
+    width: 80%;
+}
+
+.title {
+    margin-top: 110px;
+}
+
+.card  {
+    height: 150px;
+    background-color: white;
+    margin: 20px;
+}
+
+.card > div {
+    height: 50%;
+}
+
+.card-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-row > div {
+    width: 33.3%;
+    padding: 30px;
+}
+
+.card-row-split{
+    display: flex;
+    flex-direction: row;
+}
+
+.card-row-split > div {
+    width: 33.3%;
+}
+
+.border-bottom {
+    border-bottom: solid rgb(139, 69, 19) 2px;
+}
+
+.entry {
+    width: 70%;
+    height: 800px;
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+textarea {
+    width: 90%;
+    height: 450px;
+    margin-top: 20px;
+    border: solid 1px saddlebrown;
+}
+
+span {
+    background-color: saddlebrown;
+    font-size: 25px;
+    color: white;
+    padding: 20px 95px;
+>>>>>>> develop1
 }
