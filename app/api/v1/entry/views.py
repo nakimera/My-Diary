@@ -7,7 +7,7 @@ mod = Blueprint('entry', __name__)
 entryIds = []
 entries_list = []
 
-#generate entryId function
+
 def generate_entryId():
     entryId = random.randint(1,100)
     if entryId in entryIds:
@@ -16,13 +16,22 @@ def generate_entryId():
     return entryId
 
 
-# get request by requestId func
-def get_request_by_requestId(requestId):
+def get_entry_by_entryId(entryId):
     for entry in entries_list:
 
         if entry.entryId == int(entryId):
             return entry
     return None
+
+def convert_entry_to_dict(entry):
+    if not entry:
+        return {}
+    return dict([
+            ('entryId', entry.entryId),
+            ('date', entry.date),
+            ('title', entry.title),
+            ('details', entry.details)
+        ])
 
 
 @mod.route('/', methods=['POST', 'GET'])
