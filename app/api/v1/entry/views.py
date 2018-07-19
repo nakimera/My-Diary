@@ -9,14 +9,25 @@ entries_list = []
 
 #generate entryId function
 def generate_entryId():
-    entryId = random.randint(1,1000)
+    entryId = random.randint(1,100)
     if entryId in entryIds:
         entryId = random.randint(1,1000)
         entryIds.append(entryId)
     return entryId
 
+
+# get request by requestId func
+def get_request_by_requestId(requestId):
+    for entry in entries_list:
+
+        if entry.entryId == int(entryId):
+            return entry
+    return None
+
+
 @mod.route('/', methods=['POST', 'GET'])
 def entry():
+
     if request.method == 'POST':
 
         data = request.get_json(force=True)
@@ -24,7 +35,7 @@ def entry():
         date = data.get("date", None)
         title = data.get("title", None)
         details = data.get("details", None)
-        user_entry = Entry(entry, date, title, details)
+        user_entry = Entry(entryId, date, title, details)
         entries_list.append(user_entry)
 
         return jsonify({
@@ -36,3 +47,56 @@ def entry():
                     "details" : "{}".format(details)
                     }
         }), 201
+
+    if request.method == 'GET':
+
+        all_entries = []
+
+        for each_entry in entries_list:
+            each_entry = dict([
+                ('entryId', each_entry.entryId),
+                ('date', each_entry.date),
+                ('title', each_entry.title),
+                ('details', each_entry.details)
+            ])
+            all_entries.append(each_entry)
+        
+        return jsonify({
+            "message" : "All entries successfully retrieved",
+            "data" : all_entries
+        }), 200
+    
+
+
+@mod.route('/<entryId>', methods=['PUT', 'GET'])       
+def indiv_request(entryId): 
+    one_entry = get_entry_by_entryId(entryId) 
+
+    if not one_entry:
+        return jsonify({
+            "message" : "Entry not found",
+            "status": False}), 203
+
+    if request.method == 'GET':  
+        return jsonify({
+            "message": "Entry successfully retrieved",
+            "status": True,
+            "data": convert_entry_to_dict(one_entry)
+            }), 200
+
+    if request.method == 'PUT':
+        data = request.get_json(force = True)
+
+    for key, value in data.items():
+        if key == "date":
+            one_entry.date = value
+        elif key  == "title":
+            one_entry.title = value
+        elif key  == "details":
+            one_entry.details = value
+        
+    return jsonify({
+            "message": "Entry successfully updated",
+            "status": True,
+            "data": convert_entry_to_dict(one_entry)
+            }), 200
