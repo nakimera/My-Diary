@@ -3,6 +3,7 @@ from app.api.v1.user.models import User
 
 mod = Blueprint('user', __name__)
 
+users_list = []
 
 @mod.route('/', methods=['POST', 'GET'])
 def users():
@@ -13,7 +14,7 @@ def users():
         emailAddress = data.get("emailAddress", None)
         password = data.get("password", None)
         user = User(username, emailAddress, password)
-        user.add_user()
+        users_list.append(user)
         return jsonify({
                 "message": "User sucessfully created",
                 "status": True,
@@ -24,3 +25,17 @@ def users():
                     }
                 }), 201
 
+    if request.method == 'GET':
+        all_users = []
+
+        for user in users_list:
+            user = dict([
+                    ('username', user.username),
+                    ('emailAddress', user.emailAddress)
+                ])
+            all_users.append(user)
+        
+        return jsonify({
+            "message" : "All users successfully retrieved",
+            "users" : all_users,
+            }), 200

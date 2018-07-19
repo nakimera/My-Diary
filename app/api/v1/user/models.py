@@ -1,7 +1,5 @@
 import uuid
 
-users = []
-
 class User(object):
 
     def __init__(self, username, emailAddress, password):
@@ -10,5 +8,5 @@ class User(object):
         self.emailAddress= emailAddress
         self.password = password
 
-    def add_user(user):
-        users.append(user)
+
+    

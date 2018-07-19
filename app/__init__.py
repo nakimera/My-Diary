@@ -9,6 +9,6 @@ def create_app(environment):
     from app.api.v1.user.views import mod as user
 
     app.register_blueprint(entry, url_prefix='/api/v1/users/entries')
-    app.register_blueprint(entry, url_prefix='/api/v1/users')
+    app.register_blueprint(user, url_prefix='/api/v1/users')
 
     return app

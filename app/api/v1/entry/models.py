@@ -1,4 +1,4 @@
-class Entry:
+class Entry(object):
 
     def __init__(self, entryId, date, title, entry):
         self.entryId = entryId
