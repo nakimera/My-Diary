@@ -73,7 +73,7 @@ def entry():
 
 
 @mod.route('/<entryId>', methods=['PUT', 'GET'])       
-def indiv_request(entryId): 
+def indiv_entry(entryId): 
     one_entry = get_entry_by_entryId(entryId) 
 
     if not one_entry:
