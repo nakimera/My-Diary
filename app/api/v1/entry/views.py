@@ -49,12 +49,7 @@ def entry():
 
         return jsonify({
             "message" : "Entry successfully added",
-            "data": {
-                    "entryId" :"{}".format(entryId) ,
-                    "date" : "{}".format(date),
-                    "title" : "{}".format(title),
-                    "details" : "{}".format(details)
-                    }
+            "data": convert_entry_to_dict(user_entry)
         }), 201
 
     if request.method == 'GET':
