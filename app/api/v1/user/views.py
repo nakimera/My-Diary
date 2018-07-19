@@ -1,13 +1,30 @@
 from flask import Blueprint, request, jsonify
+import jwt
 from app.api.v1.user.models import User
 
 mod = Blueprint('user', __name__)
 
-users_list = []
+users_list = []    
+
+@mod.route('/unprotected')
+def unprotected():
+    return 
+
+@mod.route('/protected')
+def protected():
+    return 
+
+@mod.route('/login')
+def login():
+    return 
+
 
 @mod.route('/', methods=['POST', 'GET'])
 def users():
 
+    # token = jwt.encode({"me" : "yo"}, 'secret')
+    # print (token)
+    
     if request.method == 'POST':
         data = request.get_json()
         username = data.get("username", None)
