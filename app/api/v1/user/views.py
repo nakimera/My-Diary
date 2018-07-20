@@ -1,10 +1,14 @@
 from flask import Blueprint, request, jsonify
 import jwt
+import datetime
 from app.api.v1.user.models import User
 
 mod = Blueprint('user', __name__)
 
 users_list = []    
+
+def generate_token():
+    
 
 @mod.route('/unprotected')
 def unprotected():
@@ -16,14 +20,13 @@ def protected():
 
 @mod.route('/login')
 def login():
-    return 
+    auth = request.authorization
+
+    if auth and auth.password
 
 
 @mod.route('/', methods=['POST', 'GET'])
 def users():
-
-    # token = jwt.encode({"me" : "yo"}, 'secret')
-    # print (token)
     
     if request.method == 'POST':
         data = request.get_json()
