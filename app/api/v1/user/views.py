@@ -22,9 +22,6 @@ def login():
 @mod.route('/', methods=['POST', 'GET'])
 def users():
 
-    # token = jwt.encode({"me" : "yo"}, 'secret')
-    # print (token)
-    
     if request.method == 'POST':
         data = request.get_json()
         username = data.get("username", None)
