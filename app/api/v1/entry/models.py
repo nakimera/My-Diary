@@ -1,4 +1,6 @@
-class Entry(object):
+from app.api.v1.auth.models import User
+
+class Entry(User):
 
     def __init__(self, entryId, date, title, details):
         self.entryId = entryId

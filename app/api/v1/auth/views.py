@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 import jwt
-from app.api.v1.user.models import User
+import datetime
+from app.api.v1.auth.models import User
 
 mod = Blueprint('auth', __name__)
 
