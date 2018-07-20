@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 import jwt
 from app.api.v1.user.models import User
 
-mod = Blueprint('user', __name__)
+mod = Blueprint('auth', __name__)
 
 users_list = []    
 
@@ -19,11 +19,8 @@ def login():
     return 
 
 
-@mod.route('/', methods=['POST', 'GET'])
+@mod.route('/users', methods=['POST', 'GET'])
 def users():
-
-    # token = jwt.encode({"me" : "yo"}, 'secret')
-    # print (token)
     
     if request.method == 'POST':
         data = request.get_json()
