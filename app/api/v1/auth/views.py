@@ -29,7 +29,8 @@ def users():
         username = data.get("username", None)
         emailAddress = data.get("emailAddress", None)
         password = generate_password_hash(data.get("password", None), method='sha256')
-        user = User(username, emailAddress, password)
+        admin = data.get("admin", False)
+        user = User(username, emailAddress, password, admin)
         users_list.append(user)
         return jsonify({
                 "message": "User sucessfully created",
@@ -38,7 +39,8 @@ def users():
                     "id" : user.id,
                     "username" : "{}".format(username),
                     "password" : "{}".format(password),
-                    "emailAddress" : "{}".format(emailAddress)
+                    "emailAddress" : "{}".format(emailAddress),
+                    "admin" : "{}".format(admin)
                     }
                 }), 201
 
