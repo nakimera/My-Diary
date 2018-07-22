@@ -7,6 +7,6 @@ class User(object):
         self.username = username
         self.email_address= email_address
         self.password = password
-
+        
 
     
