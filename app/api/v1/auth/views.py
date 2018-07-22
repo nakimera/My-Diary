@@ -71,26 +71,26 @@ def login_user():
     
 
 
-    for user in users_list:
-        if not user:
-            return make_response('could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
+    # for user in users_list:
+    #     # if not user:
+    #     #     return make_response('could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
 
-        if check_password_hash(user.password, auth.password):
-            token = jwt.encode(
-                {
-                    'id' : user.id, 
-                    'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
-                }, 
-                app.config.('SECRET_KEY')
-            )
-            return jsonify({"token" : token})
+    #     # if check_password_hash(user.password, auth.password):
+    #     #     token = jwt.encode(
+    #     #         {
+    #     #             'id' : user.id, 
+    #     #             'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
+    #     #         }, 
+    #     #         app.config.('SECRET_KEY')
+    #     #     )
+    #     #     return jsonify({"token" : token})
 
-        # data = request.get_json()
-        # if data.get('username') == user.username and data.get('password_hash') == user.password:
-        #     return jsonify({
-        #         "message": "{} logged in". format(user.username),
-        #         "data" : user.id,
-        #         "status": False
+    #     # data = request.get_json()
+    #     # if data.get('username') == user.username and data.get('password_hash') == user.password:
+    #     #     return jsonify({
+    #     #         "message": "{} logged in". format(user.username),
+    #     #         "data" : user.id,
+    #     #         "status": False
         #                 }), 200        
     
     return make_response('Could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
