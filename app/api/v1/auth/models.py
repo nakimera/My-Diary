@@ -10,7 +10,7 @@ class User(object):
         self.password = password
         self.admin = bool()
 
-    def encode_token(seld, id):
+    def encode_token(self, id):
                 """
                 Generate Authentication Token
                 return:string

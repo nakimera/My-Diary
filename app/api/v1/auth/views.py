@@ -3,23 +3,10 @@ import jwt
 import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.api.v1.auth.models import User
-# import app.config
 
 mod = Blueprint('auth', __name__)
 
 users_list = []    
-
-@mod.route('/unprotected')
-def unprotected():
-    return 
-
-@mod.route('/protected')
-def protected():
-    return 
-
-@mod.route('/login')
-def login():
-    return 
 
 
 @mod.route('/users', methods=['POST', 'GET'])
@@ -42,8 +29,9 @@ def users():
                     "password" : "{}".format(password),
                     "emailAddress" : "{}".format(emailAddress),
                     "admin" : "{}".format(admin)
-                    }
-                }), 201
+                        }
+                    }), 201
+        
 
     if request.method == 'GET':
         all_users = []
@@ -73,22 +61,5 @@ def login_user():
         if not user:
             return make_response('could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
 
-        if check_password_hash(user.password, auth.password):
-        #     token = jwt.encode(
-        #         {
-        #             'id' : user.id, 
-        #             'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
-        #         }, 
-        #         app.config.get('SECRET_KEY')
-        #     )
-        #     return jsonify({"token" : token})
-
-        # data = request.get_json()
-        # if data.get('username') == user.username and data.get('password_hash') == user.password:
-        #     return jsonify({
-        #         "message": "{} logged in". format(user.username),
-        #         "data" : user.id,
-        #         "status": False
-        #                 }), 200        
-
-            
+        # if check_password_hash(user.password, auth.password):
+        
