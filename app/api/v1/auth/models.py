@@ -2,10 +2,10 @@ import uuid
 
 class User(object):
 
-    def __init__(self, username, emailAddress, password):
+    def __init__(self, username, email_address, password):
         self.id = int(uuid.uuid1())
         self.username = username
-        self.emailAddress= emailAddress
+        self.email_address= email_address
         self.password = password
 
 

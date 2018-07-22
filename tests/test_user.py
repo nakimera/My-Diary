@@ -10,6 +10,11 @@ class UserTests(unittest.TestCase):
     #     self.assertAlmostEqual(response,status_code, 200)
 
     def test_user_creation(self):
+        """GIVEN a User model
+        WHEN a new user is created
+        THEN check the username, email_address, password
+        """
+
         user = User('me', 'prossienakimera@gmail.com', 'pr055y')
         assert user
     

@@ -31,9 +31,9 @@ def users():
     if request.method == 'POST':
         data = request.get_json()
         username = data.get("username", None)
-        emailAddress = data.get("emailAddress", None)
+        email_address = data.get("email_address", None)
         password = data.get("password", None)
-        user = User(username, emailAddress, password)
+        user = User(username, email_address, password)
         users_list.append(user)
         return jsonify({
                 "message": "User sucessfully created",
@@ -41,7 +41,7 @@ def users():
                 "data": {
                     "id" : user.id,
                     "username" : "{}".format(username),
-                    "emailAddress" : "{}".format(emailAddress)
+                    "email_address" : "{}".format(email_address)
                     }
                 }), 201
 
@@ -51,7 +51,7 @@ def users():
         for user in users_list:
             user = dict([
                     ('username', user.username),
-                    ('emailAddress', user.emailAddress)
+                    ('email_address', user.email_address)
                 ])
             all_users.append(user)
         
