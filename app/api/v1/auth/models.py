@@ -32,4 +32,15 @@ class User(object):
 
     @staticmethod
     def decode_token(token):
+        """
+        Decodes the authentication token 
+        return integer|string
+        """
         
+        try:
+            payload = jwt.decode(token, app.config.get('SECRET_KEY'))
+            return payload['sub']
+        except jwt.ExpiredSignatureError:
+            return 'Signature expired. Please log in again'
+        except jwt.InvalidTokenError:
+            return 'Invalid Token. Please log in again'
