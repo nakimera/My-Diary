@@ -3,7 +3,7 @@ import jwt
 import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.api.v1.auth.models import User
-import app.config
+# import app.config
 
 mod = Blueprint('auth', __name__)
 
@@ -69,28 +69,26 @@ def login_user():
     if not auth or not auth.username or not auth.password:
         return make_response('Please fill all fields', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
     
+    for user in users_list:
+        if not user:
+            return make_response('could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
 
+        if check_password_hash(user.password, auth.password):
+        #     token = jwt.encode(
+        #         {
+        #             'id' : user.id, 
+        #             'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
+        #         }, 
+        #         app.config.get('SECRET_KEY')
+        #     )
+        #     return jsonify({"token" : token})
 
-    # for user in users_list:
-    #     # if not user:
-    #     #     return make_response('could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
-
-    #     # if check_password_hash(user.password, auth.password):
-    #     #     token = jwt.encode(
-    #     #         {
-    #     #             'id' : user.id, 
-    #     #             'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
-    #     #         }, 
-    #     #         app.config.('SECRET_KEY')
-    #     #     )
-    #     #     return jsonify({"token" : token})
-
-    #     # data = request.get_json()
-    #     # if data.get('username') == user.username and data.get('password_hash') == user.password:
-    #     #     return jsonify({
-    #     #         "message": "{} logged in". format(user.username),
-    #     #         "data" : user.id,
-    #     #         "status": False
+        # data = request.get_json()
+        # if data.get('username') == user.username and data.get('password_hash') == user.password:
+        #     return jsonify({
+        #         "message": "{} logged in". format(user.username),
+        #         "data" : user.id,
+        #         "status": False
         #                 }), 200        
-    
-    return make_response('Could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
+
+            
