@@ -1,13 +1,14 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify
 import jwt
 import datetime
-from werkzeug.security import generate_password_hash, check_password_hash
-from app.api.v1.auth.models import User
-import app.config
+from app.api.v1.user.models import User
 
-mod = Blueprint('auth', __name__)
+mod = Blueprint('user', __name__)
 
 users_list = []    
+
+def generate_token():
+    
 
 @mod.route('/unprotected')
 def unprotected():
@@ -17,17 +18,22 @@ def unprotected():
 def protected():
     return 
 
+@mod.route('/login')
+def login():
+    auth = request.authorization
 
-@mod.route('/users', methods=['POST', 'GET'])
+    if auth and auth.password
+
+
+@mod.route('/', methods=['POST', 'GET'])
 def users():
     
     if request.method == 'POST':
         data = request.get_json()
         username = data.get("username", None)
-        emailAddress = data.get("emailAddress", None)
-        password = generate_password_hash(data.get("password", None), method='sha256')
-        admin = data.get("admin", False)
-        user = User(username, emailAddress, password, admin)
+        email_address = data.get("email_address", None)
+        password = data.get("password", None)
+        user = User(username, email_address, password)
         users_list.append(user)
         return jsonify({
                 "message": "User sucessfully created",
@@ -35,9 +41,7 @@ def users():
                 "data": {
                     "id" : user.id,
                     "username" : "{}".format(username),
-                    "password" : "{}".format(password),
-                    "emailAddress" : "{}".format(emailAddress),
-                    "admin" : "{}".format(admin)
+                    "email_address" : "{}".format(email_address)
                     }
                 }), 201
 
@@ -46,10 +50,8 @@ def users():
 
         for user in users_list:
             user = dict([
-                    ('id', user.id),
                     ('username', user.username),
-                    ('password', user.password),
-                    ('emailAddress', user.emailAddress)
+                    ('email_address', user.email_address)
                 ])
             all_users.append(user)
         
@@ -57,36 +59,3 @@ def users():
             "message" : "All users successfully retrieved",
             "users" : all_users,
             }), 200
-
-@mod.route('/login', methods=['POST'])
-def login_user(): 
-    auth = request.authorization
-
-    if not auth or not auth.username or not auth.password:
-        return make_response('Please fill all fields', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
-    
-
-
-    # for user in users_list:
-    #     # if not user:
-    #     #     return make_response('could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
-
-    #     # if check_password_hash(user.password, auth.password):
-    #     #     token = jwt.encode(
-    #     #         {
-    #     #             'id' : user.id, 
-    #     #             'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
-    #     #         }, 
-    #     #         app.config.('SECRET_KEY')
-    #     #     )
-    #     #     return jsonify({"token" : token})
-
-    #     # data = request.get_json()
-    #     # if data.get('username') == user.username and data.get('password_hash') == user.password:
-    #     #     return jsonify({
-    #     #         "message": "{} logged in". format(user.username),
-    #     #         "data" : user.id,
-    #     #         "status": False
-        #                 }), 200        
-    
-    return make_response('Could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
