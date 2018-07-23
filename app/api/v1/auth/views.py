@@ -1,28 +1,12 @@
 from flask import Blueprint, request, jsonify
 import jwt
 import datetime
-from app.api.v1.user.models import User
+from werkzeug.security import generate_password_hash, check_password_hash
+from app.api.v1.auth.models import User
 
 mod = Blueprint('user', __name__)
 
 users_list = []    
-
-def generate_token():
-    
-
-@mod.route('/unprotected')
-def unprotected():
-    return 
-
-@mod.route('/protected')
-def protected():
-    return 
-
-@mod.route('/login')
-def login():
-    auth = request.authorization
-
-    if auth and auth.password
 
 
 @mod.route('/', methods=['POST', 'GET'])
@@ -41,9 +25,12 @@ def users():
                 "data": {
                     "id" : user.id,
                     "username" : "{}".format(username),
-                    "email_address" : "{}".format(email_address)
-                    }
-                }), 201
+                    "password" : "{}".format(password),
+                    "emailAddress" : "{}".format(emailAddress),
+                    "admin" : "{}".format(admin)
+                        }
+                    }), 201
+        
 
     if request.method == 'GET':
         all_users = []
@@ -59,3 +46,17 @@ def users():
             "message" : "All users successfully retrieved",
             "users" : all_users,
             }), 200
+
+@mod.route('/login', methods=['POST'])
+def login_user(): 
+    auth = request.authorization
+
+    if not auth or not auth.username or not auth.password:
+        return make_response('Please fill all fields', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
+    
+    for user in users_list:
+        if not user:
+            return make_response('could not verify', 401, {"WWW-Authenticate" : 'Basic realm="Login required!"'})
+
+        # if check_password_hash(user.password, auth.password):
+        
