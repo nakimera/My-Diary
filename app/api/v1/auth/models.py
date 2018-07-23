@@ -8,9 +8,6 @@ class User(object):
         self.username = username
         self.email_address= email_address
         self.password = password
-<<<<<<< HEAD
-        
-=======
         self.admin = bool()
 
     def encode_token(self, id):
@@ -18,7 +15,6 @@ class User(object):
                 Generate Authentication Token
                 return:string
                 """
->>>>>>> feature-api-endpoints-auth
 
                 try:
                     payload = {
