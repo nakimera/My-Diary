@@ -1,5 +1,6 @@
 .btn-save {
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .entries-container {
@@ -72,7 +73,8 @@ span {
 
 textarea {
     width: 90%;
-    height: 450px;
+    height: 30rem;
     margin-top: 20px;
     border: solid 1px saddlebrown;
 }
+

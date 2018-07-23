@@ -22,10 +22,10 @@
             <form class="login">
                 <fieldset>
                     <h2>Signup</h2>
-                    <input type="text" class="input-signup" placeholder="username">
-                    <input type="text" class="input-signup" placeholder="prossienakimera@gmail.com">
-                    <input type="password" class="input-signup" placeholder="password">
-                    <input type="password" placeholder="confirm password">
+                    <input type="text" class="input-signup" placeholder="username" required minlength="6" maxlength="15">
+                    <input type="email" class="input-signup" placeholder="prossienakimera@gmail.com" required>
+                    <input type="password" class="input-signup" placeholder="password" required minlength="8" maxlength="20">
+                    <input type="password" placeholder="confirm password" required>
                     <button type="submit" class="btn-login">Signup</button>
                     <div class="form-footer center">
                         <h4> Have an account?</h4>
