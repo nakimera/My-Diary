@@ -13,8 +13,9 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     DEBUG = False
+    TESTING = False
     
-configuration = {
+app_config = {
     "development" : DevelopmentConfig,
     "testing" : TestingConfig,
     "production" : ProductionConfig
