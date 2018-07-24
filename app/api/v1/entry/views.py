@@ -48,6 +48,12 @@ def entry():
         user_entry = Entry(entryId, date, title, details)
         entries_list.append(user_entry)
 
+        if user_entry.title == "" or user_entry.title == " ":
+            return jsonify({"message" : "Please enter a title"}), 400
+
+        elif user_entry.details == "" or user_entry.details == " ":
+            return jsonify({"message" : "Please enter details"}), 400
+
         return jsonify({
             "message" : "Entry successfully added",
             "data": convert_entry_to_dict(user_entry)

@@ -44,11 +44,41 @@ class EntryTests(TestCase):
         self.assertEqual(response.status_code, 201)
         self.assertIn('Entry successfully added', str(response.data))
 
+    def test_cannot_create_entry_with_out_title(self):
+        self.entry = {
+            "date" : "Tue, 24 Jul 2018 11:13:26 GMT",
+            "entryId" : 2,
+            "title" : " ",
+            "details" : "some details"
+        }
+        response = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('Please enter a title', str(response.data))
+
+    def test_cannot_create_entry_with_out_details(self):
+        self.entry = {
+            "date" : "Tue, 24 Jul 2018 11:13:26 GMT",
+            "entryId" : 2,
+            "title" : "some title",
+            "details" : ""
+        }
+        response = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('Please enter details', str(response.data))
+
     def test_api_can_get_all_entries(self):
         response = self.client().get('/api/v1/entries/')
         self.assertEqual(response.status_code, 200)
         self.assertIn('All entries successfully retrieved', str(response.data))
+        
+    def test_api_can_get_an_entry_by_Id(self):
+        pass
 
+    def test_api_can_get_an_entry_with_an_invalid_Id(self):
+        pass
+
+    def test_api_can_update_a_request(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()
