@@ -68,7 +68,7 @@ def entry():
     
 
 
-@mod.route('/<entryId>', methods=['PUT', 'GET', 'DELETE'])       
+@mod.route('/<entryId>', methods=['PUT', 'GET'])       
 def indiv_entry(entryId): 
     one_entry = get_entry_by_entryId(entryId) 
 
@@ -100,10 +100,3 @@ def indiv_entry(entryId):
             "status": True,
             "data": convert_entry_to_dict(one_entry)
             }), 200
-
-    if request.method == 'DELETE':
-        
-        return jsonify({
-            "message" : "Entry successfully deleted"
-        }), 200
-
