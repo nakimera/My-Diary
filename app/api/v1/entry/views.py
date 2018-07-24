@@ -1,4 +1,5 @@
 import random
+import datetime
 from flask import Blueprint, request, jsonify
 from app.api.v1.entry.models import Entry
 
@@ -28,7 +29,7 @@ def convert_entry_to_dict(entry):
         return {}
     return dict([
             ('entryId', entry.entryId),
-            ('date', entry.date),
+            ('date', datetime.datetime.now()),
             ('title', entry.title),
             ('details', entry.details)
         ])
@@ -41,10 +42,9 @@ def entry():
 
         data = request.get_json(force=True)
         entryId = generate_entryId()
-        date = data.get("date", None)
         title = data.get("title", None)
         details = data.get("details", None)
-        user_entry = Entry(entryId, date, title, details)
+        user_entry = Entry(entryId, title, details)
         entries_list.append(user_entry)
 
         return jsonify({
@@ -57,12 +57,7 @@ def entry():
         all_entries = []
 
         for each_entry in entries_list:
-            each_entry = dict([
-                ('entryId', each_entry.entryId),
-                ('date', each_entry.date),
-                ('title', each_entry.title),
-                ('details', each_entry.details)
-            ])
+            each_entry = convert_entry_to_dict(each_entry)
             all_entries.append(each_entry)
         
         return jsonify({
@@ -72,7 +67,7 @@ def entry():
     
 
 
-@mod.route('/<entryId>', methods=['PUT', 'GET'])       
+@mod.route('/<entryId>', methods=['PUT', 'GET', 'DELETE'])       
 def indiv_entry(entryId): 
     one_entry = get_entry_by_entryId(entryId) 
 
@@ -104,3 +99,6 @@ def indiv_entry(entryId):
             "status": True,
             "data": convert_entry_to_dict(one_entry)
             }), 200
+
+    if request.method == 'DELETE':
+        pass
