@@ -48,7 +48,6 @@ class EntryTests(TestCase):
         response = self.client().get('/api/v1/entries/')
         self.assertEqual(response.status_code, 200)
         self.assertIn('All entries successfully retrieved', str(response.data))
-        self.assertIn(entries_list)
 
 
 if __name__ == '__main__':
