@@ -7,7 +7,7 @@ class User(object):
         self.id = int(uuid.uuid1())
         self.username = username
         self.email_address= email_address
-        self.password = password
+        self.password =  password
         self.admin = bool()
 
     def encode_token(self, id):
