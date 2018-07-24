@@ -29,7 +29,7 @@ def convert_entry_to_dict(entry):
         return {}
     return dict([
             ('entryId', entry.entryId),
-            ('date', datetime.datetime.now()),
+            ('date', entry.date),
             ('title', entry.title),
             ('details', entry.details)
         ])
@@ -44,7 +44,8 @@ def entry():
         entryId = generate_entryId()
         title = data.get("title", None)
         details = data.get("details", None)
-        user_entry = Entry(entryId, title, details)
+        date = datetime.datetime.now()
+        user_entry = Entry(entryId, date, title, details)
         entries_list.append(user_entry)
 
         return jsonify({
@@ -86,19 +87,23 @@ def indiv_entry(entryId):
     if request.method == 'PUT':
         data = request.get_json(force = True)
 
-    for key, value in data.items():
-        if key == "date":
-            one_entry.date = value
-        elif key  == "title":
-            one_entry.title = value
-        elif key  == "details":
-            one_entry.details = value
-        
-    return jsonify({
+        for key, value in data.items():
+            if key == "date":
+                one_entry.date = value
+            elif key  == "title":
+                one_entry.title = value
+            elif key  == "details":
+                one_entry.details = value
+            
+        return jsonify({
             "message": "Entry successfully updated",
             "status": True,
             "data": convert_entry_to_dict(one_entry)
             }), 200
 
     if request.method == 'DELETE':
-        pass
+        
+        return jsonify({
+            "message" : "Entry successfully deleted"
+        }), 200
+
