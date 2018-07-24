@@ -8,7 +8,7 @@ def create_app(environment):
     from app.api.v1.entry.views import mod as entry
     from app.api.v1.auth.views import mod as auth
 
-    app.register_blueprint(entry, url_prefix='/api/v1/users/entries')
+    app.register_blueprint(entry, url_prefix='/api/v1/entries')
     app.register_blueprint(auth, url_prefix='/api/v1/users')
 
     return app
