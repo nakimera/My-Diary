@@ -43,7 +43,6 @@ class EntryTests(TestCase):
         response = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
         self.assertEqual(response.status_code, 201)
         self.assertIn('Entry successfully added', str(response.data))
-        self.assertEqual(json.loads(response.get_data().decode(), {''}))
 
     def test_cannot_create_entry_with_out_title(self):
         self.entry = {
