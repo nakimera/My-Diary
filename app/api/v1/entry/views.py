@@ -81,7 +81,7 @@ def indiv_entry(entryId):
     if not one_entry:
         return jsonify({
             "message" : "Entry not found",
-            "status": False}), 203
+            "status": False}), 404
 
     if request.method == 'GET':  
         return jsonify({
