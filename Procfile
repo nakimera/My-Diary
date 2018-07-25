@@ -1,1 +1,1 @@
-web: gunicorn my-diary:app
+web: gunicorn app:app
