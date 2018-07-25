@@ -17,27 +17,13 @@ class EntryTests(TestCase):
 
         self.app = create_app("testing")
         self.client = self.app.test_client
+        self.entryId = 2
         self.entry = {
             "date" : "Tue, 24 Jul 2018 11:13:26 GMT",
             "entryId" : 2,
             "title" : "some title",
             "details" : "some details"
-        }
-        
-        self.entries_list = [
-            {
-                'id' : 1,
-                'date' : '2018-4-5', 
-                'title' : 'Wakanda forever is stale', 
-                'details' : 'I do not feel the vibe anymore'
-            },
-            {
-                'id' : 3,
-                'date' : '2018-6-5', 
-                'title' : 'Black Widow', 
-                'details' : 'Give me one reason to hate her'
-            },
-        ]        
+        }     
 
     def test_create_entry(self):
         response = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
@@ -93,11 +79,14 @@ class EntryTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('All entries successfully retrieved', str(response.data))
         
-    # def test_api_can_get_an_entry_by_Id(self):
-    #     response = self.client.get('/api/v1/entries/{}'format)
+    def test_api_can_not_get_an_entry_with_an_invalid_id(self):
+        response = self.client().get('/api/v1/entries/{}'.format(self.entryId))
+        self.assertEqual(response.status_code, 404)
+        self.assertIn('Entry not found', str(response.data))
 
-    def test_api_cannot_get_an_entry_with_an_invalid_Id(self):
-        pass
+    # def test_api_can_get_an_entry_by_Id(self):
+    #     response = self.client().get('/api/v1/entries/{}'.format(self.entryId))
+    #     self.assertEqual(response.status_code, 200)
 
     def test_api_can_update_an_entry(self):
         pass
