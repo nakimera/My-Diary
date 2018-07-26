@@ -84,9 +84,15 @@ class EntryTests(TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertIn('Entry not found', str(response.data))
 
-    # def test_api_can_get_an_entry_by_Id(self):
-    #     response = self.client().get('/api/v1/entries/{}'.format(self.entryId))
-    #     self.assertEqual(response.status_code, 200)
+    def test_api_can_get_an_entry_by_Id(self): 
+        # create entry       
+        rv = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
+
+        #get entry by entryId
+        print(self.entries_list)
+        response = self.client().get('/api/v1/entries/{}'.format(self.entryId))
+        self.assertEqual(response.status_code, 200)
+
 
     def test_api_can_update_an_entry(self):
         pass
