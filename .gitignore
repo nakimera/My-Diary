@@ -1,9 +1,0 @@
-# pycache
-__pycache__
-.pytest_cache
-app/pycache
-
-# Environment
-app/env
-
-
