@@ -19,8 +19,6 @@ class EntryTests(TestCase):
         self.client = self.app.test_client
         self.entryId = 2
         self.entry = {
-            "date" : "Tue, 24 Jul 2018 11:13:26 GMT",
-            "entryId" : 2,
             "title" : "some title",
             "details" : "some details"
         }     
@@ -32,8 +30,6 @@ class EntryTests(TestCase):
 
     def test_cannot_create_entry_with_out_title(self):
         self.entry = {
-            "date" : "Tue, 24 Jul 2018 11:13:26 GMT",
-            "entryId" : 2,
             "title" : " ",
             "details" : "some details"
         }
@@ -43,8 +39,6 @@ class EntryTests(TestCase):
 
     def test_cannot_create_entry_with_out_details(self):
         self.entry = {
-            "date" : "Tue, 24 Jul 2018 11:13:26 GMT",
-            "entryId" : 2,
             "title" : "some title",
             "details" : ""
         }
@@ -54,8 +48,6 @@ class EntryTests(TestCase):
 
     def test_cannot_create_entry_with_out_title(self):
         self.entry = {
-            "date" : "Tue, 24 Jul 2018 11:13:26 GMT",
-            "entryId" : 2,
             "title" : " ",
             "details" : "some details"
         }
@@ -65,8 +57,6 @@ class EntryTests(TestCase):
 
     def test_cannot_create_entry_with_out_details(self):
         self.entry = {
-            "date" : "Tue, 24 Jul 2018 11:13:26 GMT",
-            "entryId" : 2,
             "title" : "some title",
             "details" : ""
         }
