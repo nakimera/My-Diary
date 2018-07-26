@@ -1,9 +1,0 @@
-[
-  "test_entry.py::EntryTests::test_api_can_get_all_entries",
-  "test_entry.py::EntryTests::test_api_can_get_an_entry_by_Id",
-  "test_entry.py::EntryTests::test_api_can_not_get_an_entry_with_an_invalid_id",
-  "test_entry.py::EntryTests::test_api_can_update_an_entry",
-  "test_entry.py::EntryTests::test_cannot_create_entry_with_out_details",
-  "test_entry.py::EntryTests::test_cannot_create_entry_with_out_title",
-  "test_entry.py::EntryTests::test_create_entry"
-]
