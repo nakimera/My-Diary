@@ -23,7 +23,12 @@ class EntryTests(TestCase):
             "entryId" : 2,
             "title" : "some title",
             "details" : "some details"
+<<<<<<< HEAD
         } 
+=======
+        }     
+        self.entries_list = []
+>>>>>>> 160da9637eff462563b2f9c45aab757f0f2fc700
 
     # Test api can create entry
     def test_create_entry(self):
@@ -67,7 +72,7 @@ class EntryTests(TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertIn('Entry not found', str(response.data))
 
-    # Test api can get an entry with by entryId 
+    # Test api can get an entry by entryId 
     def test_api_can_get_an_entry_by_Id(self): 
         # create entry       
         rv = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
