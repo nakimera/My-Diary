@@ -67,7 +67,7 @@ class EntryTests(TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertIn('Entry not found', str(response.data))
 
-    # Test api can get an entry with by entryId 
+    # Test api can get an entry by entryId 
     def test_api_can_get_an_entry_by_Id(self): 
         # create entry       
         rv = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
