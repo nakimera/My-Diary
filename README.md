@@ -45,16 +45,19 @@ $ my-diary/env/scripts/activate
 ```
 
 Clone the project repo
+
 '''
 git clone https://github.com/nakimera/My-Diary.git
 '''
 
 Install requirements
+
 '''
 pip install -r requirements.txt
 '''
 
 Run the development server
+
 '''
 $ python run.py
 '''
@@ -70,12 +73,16 @@ The following endpoints can be tested
 | POST | /api/v1/entries      | Create a new entry |
 | PUT      | /api/v1/entries/id      | Modify a specific entry using an id |
 
+
 ### How to run tests
-- Install pytest 
+
+* Install pytest 
+
 '''
 $ pip install pytest
 '''
- - Run tests
+ * Run tests
+ 
  '''
 $ cd ~/my-diary/tests
 $ pytest test_entry.py
