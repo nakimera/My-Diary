@@ -50,28 +50,7 @@ class EntryTests(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn('Please enter details', str(response.data))
 
-<<<<<<< HEAD
-    def test_cannot_create_entry_with_out_title(self):
-        self.entry = {
-            "title" : " ",
-            "details" : "some details"
-        }
-        response = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
-        self.assertEqual(response.status_code, 400)
-        self.assertIn('Please enter a title', str(response.data))
-
-    def test_cannot_create_entry_with_out_details(self):
-        self.entry = {
-            "title" : "some title",
-            "details" : ""
-        }
-        response = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
-        self.assertEqual(response.status_code, 400)
-        self.assertIn('Please enter details', str(response.data))
-
-=======
     # Test api can get all entries
->>>>>>> develop
     def test_api_can_get_all_entries(self):
         response = self.client().get('/api/v1/entries/')
         self.assertEqual(response.status_code, 200)
