@@ -21,10 +21,10 @@ These are the steps on you how to get a development environment of the applicati
 
 * Make a directory on your computer
 
-  ``` 
-  $ mkdir my-diary 
-  cd ~/my-diary
-  ```
+``` 
+$ mkdir my-diary 
+cd ~/my-diary
+ ```
 
 * Setup a virtual environment
 
