@@ -25,6 +25,7 @@ class EntryTests(TestCase):
             "details" : "some details"
         } 
 
+
     # Test api can create entry
     def test_create_entry(self):
         response = self.client().post('/api/v1/entries/', data=json.dumps(self.entry))
