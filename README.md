@@ -78,17 +78,18 @@ The following endpoints can be tested
 
 * Install pytest 
 
-'''
+``` 
 $ pip install pytest
-'''
+``` 
  * Run tests
  
- '''
+ ``` 
 $ cd ~/my-diary/tests
 $ pytest test_entry.py
- '''
+ ``` 
 
 ## Deployment  sites
+
 The user interfaces are hosted on github pages at https://nakimera.github.io/My-Diary/
 
 The api is hosted on heroku at https://npdiary-api-heroku.herokuapp.com/
