@@ -46,21 +46,21 @@ $ my-diary/env/scripts/activate
 
 Clone the project repo
 
-'''
+``` 
 git clone https://github.com/nakimera/My-Diary.git
-'''
+``` 
 
 Install requirements
 
-'''
+``` 
 pip install -r requirements.txt
-'''
+``` 
 
 Run the development server
 
-'''
+``` 
 $ python run.py
-'''
+``` 
 
 The app should now be running on http://localhost:5000
 
