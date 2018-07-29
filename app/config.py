@@ -8,9 +8,11 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     DEVELOPMENT = True
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Annemellisa1@localhost/mydiary'
 
 class TestingConfig(Config):
     TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Annemellisa1@localhost/mydiary_test'
 
 class ProductionConfig(Config):
     DEBUG = False

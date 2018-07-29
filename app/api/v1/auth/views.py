@@ -21,4 +21,4 @@ def login():
     if request.method == 'POST':
         data = request.get_json()
 
-        return jsonify({'message' : '{} logged in'.format(username)}), 200
+        return jsonify({'message' : 'logged in'}), 200
