@@ -1,20 +1,13 @@
 import uuid
-from flask_sqlalchemy import SQLAlchemy
+import jwt
+import datetime
+from werkzeug.security import generate_password_hash
 
-db = SQLAlchemy()
 
-class User(db.Model):
+class User(object):
     """
     model for the users
     """
-
-    __tablename__ = 'users'
-
-
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True)
-    email_address = db.Column(db.String(50), unique=True)
-    password = db.Column(db.String(30))
 
     def __init__(self, username, email_address, password):
         self.id = int(uuid.uuid1())
@@ -23,7 +16,8 @@ class User(db.Model):
         self.password = password
 
 
-    def encode_token(self, id):
+    @staticmethod
+    def encode_token(id):
         """
         Generate Authentication Token
         return:string
@@ -37,7 +31,7 @@ class User(db.Model):
                 }    
             return jwt.encode(
                 payload,
-                app.config.get('SECRET_KEY'),
+                "(SECRET)",
                 algorithm='HS256'
                 )
         except Exception as e:
@@ -59,6 +53,8 @@ class User(db.Model):
             return 'Invalid Token. Please log in again'
 
 
+    # def hash_password(self, password):
+    #     hash_password = generate_password_hash(data.get("password"), method='sha256')
 
-
-
+    def verify_password(self, password):
+        pass
